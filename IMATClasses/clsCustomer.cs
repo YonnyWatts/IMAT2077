@@ -13,53 +13,59 @@ namespace IMATClasses
         private string username;
         private string password;
         private string email;
+        private bool saveInfo;
+        private string realName;
+
 
 
         //constructor that requires all 4 fields
-        public clsCustomer(int accountNo, string user, string pass, string emails)
+        public clsCustomer(int accountNo, string user, string pass, string emails, string name, bool info)
         {
             customerNo = accountNo;
             username = user;
             password = pass;
             email = emails;
+            saveInfo = info;
+            realName = name;
+
         }
 
         //getters and setters
-        public string getUsername()
-        {
+        public string getUsername(){
             return username;
         }
-        public void setUsername(string user)
-        {
+        public void setUsername(string user){
             username = user;
         }
-
-        public string getPassword()
-        {
+        public string getRealname(){
+            return realName;
+        }
+        public void setRealname(string name){
+            realName = name;
+        }
+        public bool getBoolean(){
+            return saveInfo;
+        }
+        public void setBoolean(bool info){
+            saveInfo = info;
+        }
+        public string getPassword(){
             return password;
         }
-
-        public void setPassword(string pass)
-        {
+        public void setPassword(string pass){
             password = pass;
         }
-
-        public int getCustomerNo()
-        {
+        public int getCustomerNo(){
             return customerNo;
         }
-        public void setCustomerNo(int account)
-        {
+        public void setCustomerNo(int account){
             customerNo = account;
         }
 
-        public string getEmail()
-        {
+        public string getEmail(){
             return email;
         }
-
-        public void setEmail(string emails)
-        {
+        public void setEmail(string emails){
             email = emails;
         }
 
