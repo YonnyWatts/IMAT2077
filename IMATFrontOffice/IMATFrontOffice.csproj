@@ -82,7 +82,8 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
-    <Content Include="IMATWebForm.aspx" />
+    <Content Include="IMATStartPage.aspx" />
+    <Content Include="IMATCustomerPage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -90,12 +91,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IMATWebForm.aspx.cs">
-      <DependentUpon>IMATWebForm.aspx</DependentUpon>
+    <Compile Include="IMATStartPage.aspx.cs">
+      <DependentUpon>IMATStartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="IMATWebForm.aspx.designer.cs">
-      <DependentUpon>IMATWebForm.aspx</DependentUpon>
+    <Compile Include="IMATStartPage.aspx.designer.cs">
+      <DependentUpon>IMATStartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IMATCustomerPage.aspx.cs">
+      <DependentUpon>IMATCustomerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IMATCustomerPage.aspx.designer.cs">
+      <DependentUpon>IMATCustomerPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +119,12 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IMATClasses\IMATClasses.csproj">
+      <Project>{9d9dd4b1-1993-4bcf-b6fa-ce6d209e4d23}</Project>
+      <Name>IMATClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

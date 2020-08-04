@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMATClasses
 {
- class clsCustomer
+ public class clsCustomer
     {
         //private fields
         private int customerNo;
@@ -19,14 +19,37 @@ namespace IMATClasses
 
 
         //constructor that requires all 4 fields
-        public clsCustomer(int accountNo, string user, string pass, string emails, string name, bool info)
-        {
-            customerNo = accountNo;
+        public clsCustomer(string user, string pass, string emails, string name){
             username = user;
             password = pass;
             email = emails;
-            saveInfo = info;
             realName = name;
+        }
+
+        //constructor that requires no fields
+        public clsCustomer(){
+        
+        }
+
+        //methods
+        public bool Find(int customer)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@AccountNo", customer);
+            DB.Execute("sproc_tblCustomer_FilterByAccountNo");
+            if(DB.Count == 1){
+                customerNo = Convert.ToInt32(DB.DataTable.Rows[0]["AccountNo"]);
+                realName = Convert.ToString(DB.DataTable.Rows[0]["Full Name"]);
+                username = Convert.ToString(DB.DataTable.Rows[0]["Username"]);
+                email = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                password = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
+                saveInfo = Convert.ToBoolean(DB.DataTable.Rows[0]["IsPaymentSaved?"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
 
