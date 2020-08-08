@@ -28,10 +28,96 @@ namespace IMATClasses
 
         //constructor that requires no fields
         public clsCustomer(){
-        
+
+            username = "";
+            password = "";
+            email = "";
+            realName = "";
+            saveInfo = false;
         }
 
         //methods
+
+        public string ValidUsername(string user)
+        {
+            string error = "";
+            if(user.Length > 50) {
+                error += "Error: username too long ";
+                    }
+            if (user.Length < 4) {
+                error += "Error: username too short ";
+            }
+
+            if(user.Any(c => Char.IsLetter(c)) == false) { 
+                error += "Error: must contain atleast 1 letter "; 
+            }
+            return error;
+        }
+
+        public string ValidPassword(string pass)
+        {
+            string error = "";
+            if (pass.Length > 50)
+            {
+                error += "Error: password too long ";
+            }
+            if (pass.Length < 8)
+            {
+                error += "Error: password too short ";
+            }
+
+            if (pass.Any(c => Char.IsLetter(c)) == false || pass.Any(c => Char.IsNumber(c)) == false)
+            {
+                error += "Error: must contain atleast 1 letter and 1 number ";
+            }
+        
+            return error;
+        }
+
+        public string ValidEmail(string email)
+        {
+            string error = "";
+            if (email.Length > 50)
+            {
+                error += "Error: email is too long ";
+            }
+            if (email.Length < 7)
+            {
+                error += "Error: email too short to be valid ";
+            }
+            if (email.Contains('@') == false || email.Contains('.') == false)
+            {
+                error += "Error: invalid email ";
+            }
+
+            return error;
+        }
+
+        public string ValidName(string name)
+        {
+            string error = "";
+            if (name.Length > 100)
+            {
+                error += "Error: name is too long ";
+            }
+
+            if (name.Length < 4)
+            {
+                error += "Error: name too short ";
+            }
+        
+            if (name.Contains(' ') == false) {
+                error += "Error: Not your full name, please include first and surname with a space between them ";
+            }
+
+            if (name.Any(c => Char.IsNumber(c)))
+            {
+                error += "Error: names dont contain numbers ";
+            }
+
+            return error;
+        }
+
         public bool Find(int customer)
         {
             clsDataConnection DB = new clsDataConnection();
@@ -39,11 +125,11 @@ namespace IMATClasses
             DB.Execute("sproc_tblCustomer_FilterByAccountNo");
             if(DB.Count == 1){
                 customerNo = Convert.ToInt32(DB.DataTable.Rows[0]["AccountNo"]);
-                realName = Convert.ToString(DB.DataTable.Rows[0]["Full Name"]);
+                realName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
                 username = Convert.ToString(DB.DataTable.Rows[0]["Username"]);
                 email = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
-                password = Convert.ToString(DB.DataTable.Rows[0]["Password"]);
-                saveInfo = Convert.ToBoolean(DB.DataTable.Rows[0]["IsPaymentSaved?"]);
+                password = Convert.ToString(DB.DataTable.Rows[0]["PassWord"]);
+                saveInfo = Convert.ToBoolean(DB.DataTable.Rows[0]["IsPaymentSaved"]);
                 return true;
             }
             else
