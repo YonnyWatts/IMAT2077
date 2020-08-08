@@ -81,23 +81,15 @@ namespace IMATClasses
         
         public int Add()
         {
-            
             clsDataConnection DB = new clsDataConnection();
-
-            DB.AddParameter("@Realname", thisCustomer.getRealname());
-            DB.AddParameter("@Username", thisCustomer.getUsername());
-            DB.AddParameter("@Password", thisCustomer.getPassword());
-            DB.AddParameter("@Email", thisCustomer.getEmail());
-            DB.AddParameter("@paymentInfo", thisCustomer.getBoolean());
-            customerList.Add(thisCustomer);
-            count++;
-
-            return DB.Execute("sproc_tblCustomer_Add");
+                    DB.AddParameter("@Realname", thisCustomer.getRealname());
+                    DB.AddParameter("@Username", thisCustomer.getUsername());
+                    DB.AddParameter("@Password", thisCustomer.getPassword());
+                    DB.AddParameter("@Email", thisCustomer.getEmail());
+                    DB.AddParameter("@paymentInfo", thisCustomer.getBoolean());
+                    customerList.Add(thisCustomer);
+                    count++;
+                    return DB.Execute("sproc_tblCustomer_Add");
         }
-
-        public void Filter(){
-
-        }
-
     }
 }

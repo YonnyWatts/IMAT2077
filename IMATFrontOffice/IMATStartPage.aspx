@@ -36,7 +36,11 @@
         </p>
         <p>
             <asp:Label ID="lblPassword" runat="server" Text="Pasword: "></asp:Label>
-            <asp:TextBox ID="txtPass" runat="server" style="margin-left: 9px" Width="118px"></asp:TextBox>
+            <asp:TextBox ID="txtPass" runat="server" style="margin-left: 9px" Width="118px" TextMode="Password"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="BtnFind" runat="server" OnClick="Button1_Click" Text="Find by Customer Number" Width="167px" />
+&nbsp;
+            <asp:TextBox ID="txtFind" runat="server" style="margin-left: 10px" Width="75px"></asp:TextBox>
         </p>
         <asp:Label ID="lblEmail" runat="server" Text="Email: "></asp:Label>
         <asp:TextBox ID="txtEmail" runat="server" style="margin-left: 26px" Width="118px"></asp:TextBox>
@@ -48,6 +52,8 @@
         </p>
         <p>
             <asp:Label ID="lblErrorOrConfirm" runat="server"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblErrorOrConfirm0" runat="server"></asp:Label>
         </p>
         <p>
             &nbsp;</p>
